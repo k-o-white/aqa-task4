@@ -23,7 +23,8 @@ public class CardDeliveryTest {
         $("[data-test-id='phone'] input").setValue("+79991234567");
         $("[data-test-id='agreement']").click();
         $$("button").findBy(text("Забронировать")).click();
-        $("[data-test-id='notification']").shouldBe(visible, Duration.ofSeconds(15));
-        $("[data-test-id='notification'] .notification__content").shouldHave(text("Встреча успешно забронирована"));
+        $("[data-test-id='notification']")
+                .shouldBe(visible, Duration.ofSeconds(15))
+                .shouldHave(text("Встреча успешно забронирована на " + date));
     }
 }
